@@ -1,0 +1,58 @@
+﻿<Window x:Class="TestAppWithDB.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestAppWithDB"
+        mc:Ignorable="d" Loaded="Window_Loaded"
+        Title="MainWindow" Height="600" Width="800">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#69c7d7"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Margin" Value="3"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="30"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Label Content="CHUONG TRINH QUAN LY SINH VIEN" HorizontalAlignment="Left" Margin="254,43,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Ma Sinh Vien" HorizontalAlignment="Left" Margin="54,93,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ho ten" HorizontalAlignment="Left" Margin="78,137,0,0" VerticalAlignment="Top"/>
+        <Label Content="Dia Chi" HorizontalAlignment="Left" Margin="78,177,0,0" VerticalAlignment="Top"/>
+        <Label Content="Diem" HorizontalAlignment="Left" Margin="75,221,0,0" VerticalAlignment="Top"/>
+        <Label Content="Hoc Lop" HorizontalAlignment="Left" Margin="78,265,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="msvtext" HorizontalAlignment="Left" Margin="195,97,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="nametxt" HorizontalAlignment="Left" Margin="195,141,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="diemtxt" HorizontalAlignment="Left" Margin="195,225,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="diachitxt" HorizontalAlignment="Left" Margin="195,177,0,0" VerticalAlignment="Top" Width="120" Grid.Row="5" Grid.Column="1" SelectedIndex="0"/>
+        <ComboBox x:Name="loptxt" HorizontalAlignment="Left" Margin="195,262,0,0" VerticalAlignment="Top" Width="120" Grid.Row="5" Grid.Column="1" SelectedIndex="0"/>
+        <DataGrid Name="dtlist" Margin="78,329,70,58" AutoGenerateColumns="False" SelectedCellsChanged="dtlist_SelectedCellsChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Ma sinh vien" Binding="{Binding Masv}"/>
+                <DataGridTextColumn Header="Ho ten" Binding="{Binding Hoten}"/>
+                <DataGridTextColumn Header="Dia chi" Binding="{Binding Diachi}"/>
+                <DataGridTextColumn Header="Diem" Binding="{Binding Diem}"/>
+                <DataGridTextColumn Header="Ma Lop" Binding="{Binding Malop}"/>
+                <DataGridTemplateColumn Header="Xoa">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="Button_Click_1">Xoa</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Them" HorizontalAlignment="Left" Margin="117,534,0,0" VerticalAlignment="Top" Click ="Add_Click"/>
+        <Button Content="Sua" HorizontalAlignment="Left" Margin="255,534,0,0" VerticalAlignment="Top" Click="Update_click"/>
+        <Button Content="Xoa" HorizontalAlignment="Left" Margin="386,534,0,0" VerticalAlignment="Top" Click="Delete_click"/>
+        <Button Content="Tim" HorizontalAlignment="Left" Margin="522,534,0,0" VerticalAlignment="Top" Click="search_click"/>
+        <Button Content="Ket Thuc" HorizontalAlignment="Left" Margin="655,534,0,0" VerticalAlignment="Top" Click="Close_click"/>
+
+
+    </Grid>
+</Window>
